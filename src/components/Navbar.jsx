@@ -4,11 +4,11 @@ import Form from 'react-bootstrap/Form';
 
 function Navbar(props) {
 
-  const { refreshSeasonData, refreshRoundData, year, round } = props;
+  const { refreshSeasonData, refreshTeamData, refreshRoundData, year, team, round } = props;
 
   return (
-    <div>
-      <h1>Welcome to FootyBytes</h1>
+    <nav id="site-nav">
+      <h1>Footy<br />Bytes</h1>
 
       <Form.Select name="year" id="year" value={year} onChange={refreshSeasonData}>
         <option value={2021}>2021</option>
@@ -35,6 +35,13 @@ function Navbar(props) {
         <option value={2000}>2000</option>
       </Form.Select>
       <br />
+
+      <Form.Label htmlFor="inputTeamSearch"></Form.Label>
+      <Form.Control type="search" id="inputTeamSearch" value={team} onChange={refreshTeamData} />
+      <Form.Text id="teamSearchHelpText" muted>
+        To return all season match results for a particular team, enter a valid team name above.
+      </Form.Text>
+
       <Form.Select name="round" id="round" value={round} onChange={refreshRoundData}>
         <option value={1}>Round 1</option>
         <option value={2}>Round 2</option>
@@ -61,7 +68,7 @@ function Navbar(props) {
         <option value={23}>Round 23</option>
       </Form.Select>
 
-    </div>
+    </nav>
   )
 }
 
