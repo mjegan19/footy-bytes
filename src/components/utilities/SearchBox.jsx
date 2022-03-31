@@ -2,14 +2,13 @@ import React from 'react';
 
 import Form from 'react-bootstrap/Form';
 
-function Navbar(props) {
+function SearchBox(props) {
 
-  const { refreshSeasonData, refreshTeamData, refreshRoundData, year, team, round } = props;
+  const { refreshSeasonData, refreshTeamData, refreshRoundData, year, team, round, error } = props;
 
   return (
-    <nav id="site-nav">
-      <h1>Footy<br />Bytes</h1>
 
+    <section id="search-box">
       <Form.Select name="year" id="year" value={year} onChange={refreshSeasonData}>
         <option value={2021}>2021</option>
         <option value={2020}>2020</option>
@@ -34,12 +33,13 @@ function Navbar(props) {
         <option value={2001}>2001</option>
         <option value={2000}>2000</option>
       </Form.Select>
-      <br />
 
-      <Form.Label htmlFor="inputTeamSearch"></Form.Label>
-      <Form.Control type="search" id="inputTeamSearch" value={team} onChange={refreshTeamData} />
-      <Form.Text id="teamSearchHelpText" muted>
-        To return all season match results for a particular team, enter a valid team name above.
+      {/* <Form.Label htmlFor="inputTeamSearch"></Form.Label> */}
+      <Form.Control type="search" id="inputTeamSearch" value={team} onChange={refreshTeamData} placeholder="Adelaide" />
+      <p className='text-danger'>{error && error}</p>
+
+      <Form.Text id="teamSearchHelpText">
+        To return all season match results for a<br />particular team, enter a valid team name above.
       </Form.Text>
 
       <Form.Select name="round" id="round" value={round} onChange={refreshRoundData}>
@@ -67,9 +67,8 @@ function Navbar(props) {
         <option value={22}>Round 22</option>
         <option value={23}>Round 23</option>
       </Form.Select>
-
-    </nav>
+    </section>
   )
 }
 
-export default Navbar
+export default SearchBox;

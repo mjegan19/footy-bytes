@@ -1,44 +1,25 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 
 // Service Call - API Details
-import { fetchMatchData } from '../../services/squiggleMatchData';
+
 
 import Card from 'react-bootstrap/Card';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import Joi from 'joi';
 
 
-const Matches = () => {
+const Matches = (props) => {
 
-  // Set State
-  const [year, setYear] = useState(2021);
-  const [round, setRound] = useState(1);
-  const [matchData, setMatchData] = useState([]);
+  const { matchData } = props;
 
-
-  // Use Effect
-  useEffect(() => {
-    async function getResults() {
-      try {
-        const response = await fetchMatchData(year, round);
-        setMatchData(response.data.games);
-      }
-      catch (error) {
-        console.log(error);
-      }
-    }
-    getResults();
-  }, [year, round]);
-
-  const updateSeasonChange = (e) => {
-    console.log(e.target.value);
-    setYear(e.target.value);
-  }
-
-  const updateRoundChange = (e) => {
-    console.log(e.target.value);
-    setRound(e.target.value);
-  }
+  const schema = Joi.object({
+    teamSearch: Joi.string()
+      .alphanum()
+      .min(3)
+      .max(30)
+      .required()
+  });
 
   // Function Splits Date & Time String Apart, Returns As Seperate Variables
   function formatDate(date) {
@@ -50,7 +31,8 @@ const Matches = () => {
   }
 
   return (
-    <div id="game-result-card">
+    <div id="results-panel">
+
       <Row xs={1} md={2} className="mt-2 mb-4 g-4">
         {matchData.map(match => (
           <Col key={match.id}>
