@@ -57,6 +57,7 @@ function App() {
       try {
         const response = await fetchMatchData(year, round);
         setMatchData(response.data.games);
+        console.log(response.data.games);
       }
       catch (error) {
         console.log(error);

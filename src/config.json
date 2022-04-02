@@ -1,3 +1,4 @@
 {
-  "squiggleAPIRootURL": "https://api.squiggle.com.au/"
+  "squiggleAPIRootURL": "https://api.squiggle.com.au/",
+  "squiggleBaseURL": "https://squiggle.com.au"
 }

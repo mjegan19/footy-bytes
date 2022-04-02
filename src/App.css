@@ -4,18 +4,13 @@
   text-align: center;
 }
 
-html, body {
+html,
+body {
   font-family: 'Fira Code', monospace;
   font-size: 16px;
 }
 
-h1 {
-  font-family: 'Press Start 2P', cursive;
-  color: floralwhite;
-  font-size: 72px;
-  margin: 2rem 0;
-}
-
+/* Menu Panel */
 #menu-panel {
   position: fixed;
   top: 0;
@@ -26,22 +21,14 @@ h1 {
   padding: 0 5%;
 }
 
-#results-panel {
-  position: fixed;
-  top: 0;
-  left: 40%;
-  height: 100vh;
-  width: 60%;
-  overflow: scroll;
-  background-color: floralwhite;
-  padding: 2rem 5%;
+/* Header Logo */
+h1 {
+  font-family: 'Press Start 2P', cursive;
+  color: floralwhite;
+  font-size: 72px;
+  margin: 2rem 0;
 }
 
-.card {
-  font-family: 'Fira Code', monospace;
-}
-
-/* Menu Panel */
 /* Navbar */
 #navbar {
   display: flex;
@@ -63,12 +50,65 @@ h1 {
 }
 
 /* Search Box Styling */
-
-#search-box #year, #inputTeamSearch, #round {
+#search-box #year,
+#inputTeamSearch,
+#round {
   margin: 1rem 0;
 }
 
 #teamSearchHelpText {
   font-size: 18px;
   color: floralwhite;
+}
+
+
+
+#results-panel {
+  position: fixed;
+  top: 0;
+  left: 40%;
+  height: 100vh;
+  width: 60%;
+  overflow: scroll;
+  background-color: floralwhite;
+  padding: 2rem 5%;
+  text-align: left;
+}
+
+.date {
+  color: mediumblue;
+  padding-left: 0.5rem;
+}
+
+.card {
+  width: 100%;
+  font-family: 'Fira Code', monospace;
+  text-align: center;
+  background-color: dodgerblue;
+  margin: 2rem 0;
+}
+
+.card-head {
+  width: 100%;
+  background-color: darkblue;
+  color: white;
+  text-align: left;
+  padding-left: 1rem;
+}
+
+.card-top {
+  display: flex;
+}
+
+.team-details {
+  width: 40%;
+  background-color: cornflowerblue;
+}
+
+.inner {
+  width: 20%;
+  background-color: darkgray;
+  font-size: 4rem;
+  text-align: center;
+  margin: auto;
 }
