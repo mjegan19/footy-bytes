@@ -22,9 +22,10 @@ function App() {
 
   // Set State
   const [year, setYear] = useState(2021);
-  const [round, setRound] = useState(1);
-  const [matchData, setMatchData] = useState([]);
+  const [round, setRound] = useState(null);
   const [team, setTeam] = useState('Adelaide');
+
+  const [matchData, setMatchData] = useState([]);
   const [error, setErrors] = useState(null);
 
   const schema = Joi.object({
@@ -87,6 +88,12 @@ function App() {
     setTeam(e.target.value);
   }
 
+  const handleResetSearch = () => {
+    setYear(2021);
+    setRound(null);
+    setTeam('Adelaide');
+  }
+
 
   // const [ladderPositions, setLadderPositions] = useState([]);
 
@@ -101,11 +108,11 @@ function App() {
   return (
     <Container className="App">
 
-      <MenuPanel refreshSeasonData={updateSeasonChange} refreshTeamData={searchTeamChange} refreshRoundData={updateRoundChange} year={year} team={team} round={round} error={error} />
+      <MenuPanel refreshSeasonData={updateSeasonChange} refreshTeamData={searchTeamChange} refreshRoundData={updateRoundChange} year={year} team={team} round={round} error={error} resetButton={handleResetSearch} />
 
 
       <Routes>
-        <Route path="/" element={<Matches matchData={matchData} />}></Route>
+        <Route path="/" element={<Matches matchData={matchData} year={year} round={round} team={team} />}></Route>
         <Route path="ladder" element={<Ladder />}></Route>
       </Routes>
 

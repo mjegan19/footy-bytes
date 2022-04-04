@@ -4,12 +4,16 @@ import React from 'react';
 import { logoWebAddress } from '../../services/squiggleLogoData';
 
 
+
+
 import Joi from 'joi';
+
+
 
 
 const Matches = (props) => {
 
-  const { matchData } = props;
+  const { matchData, year, round, team } = props;
 
   const schema = Joi.object({
     teamSearch: Joi.string()
@@ -19,74 +23,83 @@ const Matches = (props) => {
       .required()
   });
 
-  // Function Splits Date & Time String Apart, Returns As Seperate Variables
+  function handlePageHeader() {
+    let dynamicHeading = "";
+
+    if (round == null) {
+      dynamicHeading = "Season " + year + " Match Results";
+    } else if (round != null) {
+      dynamicHeading = "Season " + year + ", " + "Round " + round + " Match Results";
+    }
+
+    return dynamicHeading;
+  }
+
+
+
+
+  // Function Splits Date & Time String Apart, Returns Re-Formatted Date & Time As Array
   function formatDate(date) {
     let text = date;
     const myArray = text.split(" ");
     const myDate = myArray[0].split("-");
-    const month = myDate[1];
+    const myTime = myArray[1].split(":");
 
-    if (month == 1) {
-      let dateString = myDate[2] + " January " + myDate[0];
-      return dateString;
-    } else if (month == 2) {
-      let dateString = myDate[2] + " February " + myDate[0];
-      return dateString;
-    } else if (month == 3) {
-      let dateString = myDate[2] + " March " + myDate[0];
-      return dateString;
-    } else if (month == 4) {
-      let dateString = myDate[2] + " April " + myDate[0];
-      return dateString;
-    } else if (month == 5) {
-      let dateString = myDate[2] + " May " + myDate[0];
-      return dateString;
-    } else if (month == 6) {
-      let dateString = myDate[2] + " June " + myDate[0];
-      return dateString;
-    } else if (month == 7) {
-      let dateString = myDate[2] + " July " + myDate[0];
-      return dateString;
-    } else if (month == 8) {
-      let dateString = myDate[2] + " August " + myDate[0];
-      return dateString;
-    } else if (month == 9) {
-      let dateString = myDate[2] + " September " + myDate[0];
-      return dateString;
-    } else if (month == 10) {
-      let dateString = myDate[2] + " October " + myDate[0];
-      return dateString;
-    } else if (month == 11) {
-      let dateString = myDate[2] + " November " + myDate[0];
-      return dateString;
-    } else if (month == 12) {
-      let dateString = myDate[2] + " December " + myDate[0];
-      return dateString;
+    const monthString = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+    let hours = null;
+    let timeNotation = "";
+    const timePeriods = ["AM", "PM"];
+
+    const month = monthString[(myDate[1] - 1)];
+
+    if (myTime[0] >= 12) {
+      hours = myTime[0] - 12;
+      timeNotation = timePeriods[1];
+    } else if (myTime[0] < 12) {
+      hours = myTime[0];
+      timeNotation = timePeriods[0];
+    }
+
+    const repackagedDate = [(myDate[2] + " " + month + " " + myDate[0]), (hours + ":" + myTime[1]) + " " + timeNotation];
+
+    return repackagedDate;
+  }
+
+
+  function handleMatchResult(homeTeamScore, awayTeamScore) {
+    if (homeTeamScore > awayTeamScore) {
+      return "defeated"
+    } else {
+      return "defeated by"
     }
   }
+
 
   return (
     <div id="results-panel">
 
+      <h2>{handlePageHeader()}</h2>
+
       {matchData.map(match => (
         <div className="match-result" key={match.id}>
           <div className="card">
-            <div className="card-head">{formatDate(match.date)}</div>
+            <div className="card-head">{formatDate(match.date)[0]}</div>
             <div className="card-top">
               <div className="team-details home">
                 <img src={logoWebAddress(match.hteamid)} alt="" />
-                <p><strong>{match.hteam}</strong></p>
+                <p className="team-name">{match.hteam}</p>
                 <p><strong>{match.hgoals}.{match.hbehinds}.{match.hscore}</strong></p>
               </div>
-              <div className="inner">Vs</div>
+              <div className="inner">{handleMatchResult(match.hscore, match.ascore)}</div>
               <div className="team-details away">
                 <img src={logoWebAddress(match.ateamid)} alt="" />
-                <p><strong>{match.ateam}</strong></p>
+                <p className="team-name"><strong>{match.ateam}</strong></p>
                 <p><strong>{match.agoals}.{match.abehinds}.{match.ascore}</strong></p>
               </div>
             </div>
             <div className="game-details">
-
+              {match.venue}<br />
+              {formatDate(match.date)[1]}
             </div>
 
           </div>

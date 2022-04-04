@@ -4,12 +4,12 @@ import Form from 'react-bootstrap/Form';
 
 function SearchBox(props) {
 
-  const { refreshSeasonData, refreshTeamData, refreshRoundData, year, team, round, error } = props;
+  const { refreshSeasonData, refreshTeamData, refreshRoundData, year, team, round, error, resetButton } = props;
 
   return (
 
     <section id="search-box">
-      <Form.Select name="year" id="year" value={year} onChange={refreshSeasonData}>
+      <Form.Select name="year" id="year" className="input-field" value={year} onChange={refreshSeasonData}>
         <option value={2021}>2021</option>
         <option value={2020}>2020</option>
         <option value={2019}>2019</option>
@@ -35,14 +35,15 @@ function SearchBox(props) {
       </Form.Select>
 
       {/* <Form.Label htmlFor="inputTeamSearch"></Form.Label> */}
-      <Form.Control type="search" id="inputTeamSearch" value={team} onChange={refreshTeamData} placeholder="Adelaide" />
+      <Form.Control type="search" id="inputTeamSearch" className="input-field" value={team} onChange={refreshTeamData} placeholder="Adelaide" />
       <p className='text-danger'>{error && error}</p>
 
       <Form.Text id="teamSearchHelpText">
         To return all season match results for a<br />particular team, enter a valid team name above.
       </Form.Text>
 
-      <Form.Select name="round" id="round" value={round} onChange={refreshRoundData}>
+      <Form.Select name="round" id="round" className="input-field" value={round} onChange={refreshRoundData}>
+        <option selected disabled>Filter Results By Round</option>
         <option value={1}>Round 1</option>
         <option value={2}>Round 2</option>
         <option value={3}>Round 3</option>
@@ -67,6 +68,8 @@ function SearchBox(props) {
         <option value={22}>Round 22</option>
         <option value={23}>Round 23</option>
       </Form.Select>
+
+      <button onClick={resetButton}>Reset</button>
     </section>
   )
 }

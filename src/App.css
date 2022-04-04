@@ -6,8 +6,8 @@
 
 html,
 body {
-  font-family: 'Fira Code', monospace;
-  font-size: 16px;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 8px;
 }
 
 /* Menu Panel */
@@ -21,9 +21,12 @@ body {
   padding: 0 5%;
 }
 
+#menu-panel p {
+  font-size: 10px;
+}
+
 /* Header Logo */
 h1 {
-  font-family: 'Press Start 2P', cursive;
   color: floralwhite;
   font-size: 72px;
   margin: 2rem 0;
@@ -36,8 +39,8 @@ h1 {
 }
 
 #navbar li {
-  font-family: 'Press Start 2P', cursive;
   list-style: none;
+  font-size: 16px;
 }
 
 #navbar li a {
@@ -49,6 +52,8 @@ h1 {
   color: brown;
 }
 
+
+
 /* Search Box Styling */
 #search-box #year,
 #inputTeamSearch,
@@ -56,12 +61,18 @@ h1 {
   margin: 1rem 0;
 }
 
+.input-field {
+  font-size: 16px;
+}
+
 #teamSearchHelpText {
-  font-size: 18px;
+  font-size: 10px;
   color: floralwhite;
 }
 
-
+button {
+  font-size: 16px;
+}
 
 #results-panel {
   position: fixed;
@@ -76,39 +87,58 @@ h1 {
 }
 
 .date {
-  color: mediumblue;
   padding-left: 0.5rem;
 }
 
 .card {
   width: 100%;
-  font-family: 'Fira Code', monospace;
   text-align: center;
-  background-color: dodgerblue;
-  margin: 2rem 0;
+  margin: 5rem 0;
+  border: 2px solid crimson;
+  border-radius: 0;
+  ;
 }
 
 .card-head {
   width: 100%;
-  background-color: darkblue;
+  background-color: crimson;
   color: white;
-  text-align: left;
-  padding-left: 1rem;
+  text-align: center;
+  font-size: 16px;
 }
 
 .card-top {
   display: flex;
+  margin: 2rem 0;
 }
 
 .team-details {
   width: 40%;
-  background-color: cornflowerblue;
+  font-size: 16px;
+}
+
+.team-details img {
+  margin: 1rem;
+}
+
+.team-details .team-name {
+  font-size: 10px;
 }
 
 .inner {
   width: 20%;
-  background-color: darkgray;
-  font-size: 4rem;
+  font-size: 16px;
   text-align: center;
   margin: auto;
+}
+
+.game-details {
+  background-color: rgba(220, 20, 60, 0.4);
+  color: white;
+  font-size: 16px;
+}
+
+.react-icons {
+  font-size: 24px;
+  color: lightslategrey;
 }
