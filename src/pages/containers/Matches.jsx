@@ -74,7 +74,6 @@ const Matches = (props) => {
     }
   }
 
-
   return (
     <div id="results-panel">
 

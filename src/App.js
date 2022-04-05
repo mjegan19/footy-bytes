@@ -23,7 +23,7 @@ function App() {
   // Set State
   const [year, setYear] = useState(2021);
   const [round, setRound] = useState(null);
-  const [team, setTeam] = useState('Adelaide');
+  const [team, setTeam] = useState("Adelaide");
 
   const [matchData, setMatchData] = useState([]);
   const [error, setErrors] = useState(null);
@@ -85,7 +85,10 @@ function App() {
     } else {
       setErrors(null);
     }
+    console.log(e.target.value);
     setTeam(e.target.value);
+    console.log(team);
+    handleFilterTeam(team);
   }
 
   const handleResetSearch = () => {
@@ -94,16 +97,13 @@ function App() {
     setTeam('Adelaide');
   }
 
-
-  // const [ladderPositions, setLadderPositions] = useState([]);
-
-  // async function fetchFootyData() {
-  //   const ladderResponse = await axios.get(`https://api.squiggle.com.au/?q=standings&year=${year}&round=${round}`);
-  //   console.log(ladderResponse.data.standings);
-  //   setLadderPositions(ladderResponse.data.standings);
-  // }
-
-
+  const handleFilterTeam = (team) => {
+    console.log(matchData);
+    console.log(team);
+    const updateResults = matchData.filter(m => m.hteam === team || m.ateam === team);
+    console.log(updateResults);
+    setMatchData(updateResults);
+  }
 
   return (
     <Container className="App">
@@ -118,14 +118,6 @@ function App() {
 
 
       {/* <Navbar year={year} round={round} refreshSeasonData={updateSeasonChange} refreshRoundData={updateRoundChange} /> */}
-
-
-
-
-
-
-
-
 
       {/* <div id="ladder">
         <Table striped bordered hover size="sm">
@@ -161,7 +153,6 @@ function App() {
           </tbody>
         </Table>
       </div> */}
-
 
     </Container >
   );

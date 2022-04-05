@@ -35,7 +35,7 @@ function SearchBox(props) {
       </Form.Select>
 
       {/* <Form.Label htmlFor="inputTeamSearch"></Form.Label> */}
-      <Form.Control type="search" id="inputTeamSearch" className="input-field" value={team} onChange={refreshTeamData} placeholder="Adelaide" />
+      <Form.Control type="search" id="inputTeamSearch" className="input-field" value={team} onChange={refreshTeamData} />
       <p className='text-danger'>{error && error}</p>
 
       <Form.Text id="teamSearchHelpText">
@@ -43,7 +43,7 @@ function SearchBox(props) {
       </Form.Text>
 
       <Form.Select name="round" id="round" className="input-field" value={round} onChange={refreshRoundData}>
-        <option selected disabled>Filter Results By Round</option>
+        <option value={null} selected disabled>Filter Results By Round</option>
         <option value={1}>Round 1</option>
         <option value={2}>Round 2</option>
         <option value={3}>Round 3</option>
