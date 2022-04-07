@@ -69,7 +69,7 @@ function SearchBox(props) {
         <option value={23}>Round 23</option>
       </Form.Select>
 
-      <button onClick={resetButton}>Reset</button>
+      <button onClick={resetButton}>Reset Search</button>
     </section>
   )
 }

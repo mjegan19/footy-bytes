@@ -11,11 +11,15 @@ const MenuPanel = (props) => {
 
   return (
     <header id="menu-panel">
-      <h1>Footy<br />Bytes</h1>
-      <Navbar />
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum dolorem libero totam corporis laudantium id facilis veritatis aliquid assumenda impedit quia quos eum, est omnis?</p>
-      <SearchBox refreshSeasonData={refreshSeasonData} refreshTeamData={refreshTeamData} refreshRoundData={refreshRoundData} year={year} team={team} round={round} error={error} resetButton={resetButton} />
-      <Footer />
+      <div id="bg-filter">
+        <h1>Footy<br />Bytes</h1>
+        <Navbar />
+        <p>Welcome to Footy Bytes!<br />Here you'll find all the match results for games played from 2000-2021.</p>
+        <p>To get started, select a year and a round.  You can even filter results by team!</p>
+        <p>View the ladder for each round by clicking the link in each results card.</p>
+        <SearchBox refreshSeasonData={refreshSeasonData} refreshTeamData={refreshTeamData} refreshRoundData={refreshRoundData} year={year} team={team} round={round} error={error} resetButton={resetButton} />
+        <Footer />
+      </div>
     </header>
   )
 }

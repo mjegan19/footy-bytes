@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import { logoWebAddress } from '../../services/squiggleLogoData';
 
 
-
+import { FaExternalLinkAlt } from 'react-icons/fa';
 
 import Joi from 'joi';
 
@@ -90,7 +90,7 @@ const Matches = (props) => {
               </div>
               <div className="inner">
                 <p>{handleMatchResult(match.hscore, match.ascore)}</p>
-                <p className="ladder-link"><Link to={`ladder/${match.year}/${match.round}`}>RND {match.round} LADDER</Link></p>
+                <p className="ladder-link"><Link to={`ladder/${match.year}/${match.round}`}><FaExternalLinkAlt /> VIEW LADDER</Link></p>
               </div>
               <div className="team-details away">
                 <img src={logoWebAddress(match.ateamid)} alt="" />

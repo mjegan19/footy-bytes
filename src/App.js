@@ -25,39 +25,46 @@ function App() {
   const [round, setRound] = useState(null);
   const [team, setTeam] = useState("Adelaide");
 
+  const [savedMatchData, setSavedMatchData] = useState([]);
   const [matchData, setMatchData] = useState([]);
   const [error, setErrors] = useState(null);
 
   const schema = Joi.object({
     team: Joi.string().valid(
-      'Adelaide',
-      'Brisbane Lions',
-      'Carlton',
-      'Collingwood',
-      'Essendon',
-      'Fremantle',
-      'Geelong',
-      'Gold Coast',
-      'Greater Western Sydney',
-      'Hawthorn',
-      'Melbourne',
-      'North Melbourne',
-      'Port Adelaide',
-      'Richmond',
-      'St Kilda',
-      'Sydney',
-      'West Coast',
-      'Western Bulldogs'
+      '',
+      'adelaide',
+      'brisbane lions',
+      'carlton',
+      'collingwood',
+      'essendon',
+      'fremantle',
+      'geelong',
+      'gold coast',
+      'greater western sydney',
+      'hawthorn',
+      'melbourne',
+      'north melbourne',
+      'port adelaide',
+      'richmond',
+      'st kilda',
+      'sydney',
+      'west coast',
+      'western bulldogs'
     ),
   });
 
 
   // Use Effect
   useEffect(() => {
+    let localData = localStorage.getItem('team')
+    if (localData) {
+      setTeam(localData);
+    }
     async function getResults() {
       try {
         const matchResponse = await fetchMatchData(year, round);
         setMatchData(matchResponse.data.games);
+        setSavedMatchData(matchResponse.data.games);
         console.log(matchResponse.data.games);
       }
       catch (error) {
@@ -77,16 +84,18 @@ function App() {
     setRound(e.target.value);
   }
 
-  const searchTeamChange = (e) => {
-    console.log(e.target.value);
-    let result = schema.validate({ team: e.target.value });
+  const searchTeamChange = async (e) => {
+    let searchTeam = e.target.value;
+    searchTeam = searchTeam.toLowerCase();
+    let result = schema.validate({ team: searchTeam });
     if (result.error) {
       setErrors(result.error.details[0].message);
     } else {
+      localStorage.setItem('team', searchTeam);
       setErrors(null);
+      handleFilterTeam(searchTeam);
     }
-    setTeam(e.target.value);
-    handleFilterTeam(e.target.value);
+    setTeam(searchTeam);
   }
 
   const handleResetSearch = () => {
@@ -96,9 +105,20 @@ function App() {
   }
 
   const handleFilterTeam = (team) => {
-    console.log(matchData);
-    console.log(team);
-    const updateResults = matchData.filter(m => m.hteam === team || m.ateam === team);
+    if (team == '') {
+      setMatchData(savedMatchData);
+      return
+    }
+    console.log("TEAM", team);
+    const updateResults = savedMatchData.filter(m => {
+
+      let homeTeam = m.hteam
+      homeTeam = homeTeam.toLowerCase()
+      let awayTeam = m.ateam
+      awayTeam = awayTeam.toLowerCase()
+      console.log(homeTeam, awayTeam);
+      return homeTeam === team || awayTeam === team
+    });
     console.log(updateResults);
     setMatchData(updateResults);
   }
