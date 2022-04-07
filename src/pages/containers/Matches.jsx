@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 // Service Call - API Details
 import { logoWebAddress } from '../../services/squiggleLogoData';
@@ -13,7 +14,7 @@ import Joi from 'joi';
 
 const Matches = (props) => {
 
-  const { matchData, year, round, team } = props;
+  const { matchData, year, round } = props;
 
   const schema = Joi.object({
     teamSearch: Joi.string()
@@ -29,13 +30,11 @@ const Matches = (props) => {
     if (round == null) {
       dynamicHeading = "Season " + year + " Match Results";
     } else if (round != null) {
-      dynamicHeading = "Season " + year + ", " + "Round " + round + " Match Results";
+      dynamicHeading = "Season " + year + " - " + "Round " + round + " Match Results";
     }
 
     return dynamicHeading;
   }
-
-
 
 
   // Function Splits Date & Time String Apart, Returns Re-Formatted Date & Time As Array
@@ -89,7 +88,10 @@ const Matches = (props) => {
                 <p className="team-name">{match.hteam}</p>
                 <p><strong>{match.hgoals}.{match.hbehinds}.{match.hscore}</strong></p>
               </div>
-              <div className="inner">{handleMatchResult(match.hscore, match.ascore)}</div>
+              <div className="inner">
+                <p>{handleMatchResult(match.hscore, match.ascore)}</p>
+                <p className="ladder-link"><Link to={`ladder/${match.year}/${match.round}`}>RND {match.round} LADDER</Link></p>
+              </div>
               <div className="team-details away">
                 <img src={logoWebAddress(match.ateamid)} alt="" />
                 <p className="team-name"><strong>{match.ateam}</strong></p>
@@ -104,28 +106,6 @@ const Matches = (props) => {
           </div>
         </div>
       ))}
-
-      {/* <Row xs={1} md={2} className="mt-2 mb-4 g-4">
-        {matchData.map(match => (
-          <Col key={match.id}>
-            <h6 id="date">{formatDate(match.date)}</h6>
-            <Card>
-              <Card.Body>
-                <Card.Title><strong></strong></Card.Title>
-                <Card.Text className="mt-4" id="card">
-                  <p><img src={logoWebAddress(match.hteamid)} alt="" /></p>
-                  <p><strong>{match.hteam}</strong></p>
-                  <p><strong>{match.hgoals}.{match.hbehinds}.{match.hscore}</strong></p>
-                  <p><strong>Vs</strong></p>
-                  <p><strong>{match.agoals}.{match.abehinds}.{match.ascore}</strong></p>
-                  <p><strong>{match.ateam}</strong></p>
-                  <p><img src={logoWebAddress(match.ateamid)} alt="" /></p>
-                </Card.Text>
-              </Card.Body>
-            </Card>
-          </Col>
-        ))}
-      </Row> */}
     </div >
   )
 }

@@ -25,11 +25,19 @@ body {
   font-size: 10px;
 }
 
-/* Header Logo */
+/* Headings */
 h1 {
   color: floralwhite;
   font-size: 72px;
   margin: 2rem 0;
+  text-align: right;
+}
+
+h2 {
+  color: darkgreen;
+  font-size: 20px;
+  text-align: center;
+  margin-top: 2rem;
 }
 
 /* Navbar */
@@ -141,4 +149,42 @@ button {
 .react-icons {
   font-size: 24px;
   color: lightslategrey;
+}
+
+.ladder-link {
+  font-size: 2rem;
+  margin-top: 3rem;
+}
+
+.ladder-link a {
+  color: crimson;
+  text-decoration: none;
+}
+
+.ladder-link a:hover {
+  color: brown;
+}
+
+#ladder {
+  font-size: 12px;
+  text-align: center;
+  margin-top: 4rem;
+}
+
+table {
+  margin: 0 auto;
+}
+
+thead {
+  background-color: crimson;
+  color: white;
+}
+
+.team {
+  text-align: left;
+}
+
+th,
+td {
+  padding: 5px 12px;
 }
