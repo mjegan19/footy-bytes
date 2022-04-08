@@ -1,21 +1,22 @@
+// Import Core React Modules
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-// Service Call - API Details
+// Import Stored Logo Web Addresses
 import { logoWebAddress } from '../../services/squiggleLogoData';
 
-
+// Import React-Icons
 import { FaExternalLinkAlt } from 'react-icons/fa';
 
+// Import Joi Validation Component
 import Joi from 'joi';
-
-
-
 
 const Matches = (props) => {
 
+  // Allow shared data collected from API to be utilised in this component
   const { matchData, year, round } = props;
 
+  // Use Joi method to set validation for text input field
   const schema = Joi.object({
     teamSearch: Joi.string()
       .alphanum()
@@ -24,6 +25,7 @@ const Matches = (props) => {
       .required()
   });
 
+  // Dynamically Render Page Header
   function handlePageHeader() {
     let dynamicHeading = "";
 
@@ -35,7 +37,6 @@ const Matches = (props) => {
 
     return dynamicHeading;
   }
-
 
   // Function Splits Date & Time String Apart, Returns Re-Formatted Date & Time As Array
   function formatDate(date) {
@@ -64,7 +65,7 @@ const Matches = (props) => {
     return repackagedDate;
   }
 
-
+  // Function compares home and away team scores to return match result string
   function handleMatchResult(homeTeamScore, awayTeamScore) {
     if (homeTeamScore > awayTeamScore) {
       return "defeated"
@@ -77,7 +78,7 @@ const Matches = (props) => {
     <div id="results-panel">
 
       <h2>{handlePageHeader()}</h2>
-
+      {/* Map function to loop over array of results and render on page */}
       {matchData.map(match => (
         <div className="match-result" key={match.id}>
           <div className="card">

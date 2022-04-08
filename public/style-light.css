@@ -194,7 +194,46 @@ td {
   padding: 5px 12px;
 }
 
+.about-body,
+.contact-body {
+  margin-top: 2rem;
+  font-size: 2rem;
+}
 
+.about-body a,
+.contact-body a {
+  color: crimson;
+  text-decoration: none;
+}
+
+.about-body a:hover,
+.contact-body a:hover {
+  color: brown;
+}
+
+.about-body p,
+.contact-body p {
+  margin: 3rem 0;
+}
+
+.socials p {
+  margin: 1rem 0;
+}
+
+.social-logo {
+  font-size: xx-large;
+}
+
+.not-found {
+  margin-top: 250px;
+  font-size: 2rem;
+  text-align: center;
+}
+
+.not-found h1 {
+  text-align: center;
+  color: #212121;
+}
 
 footer {
   position: absolute;

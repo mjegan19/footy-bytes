@@ -1,9 +1,12 @@
+// Import Core React Modules
 import React from 'react';
 
+// Import Form Component from Bootstrap
 import Form from 'react-bootstrap/Form';
 
 function SearchBox(props) {
 
+  // Allow data collected to be passed to parent components
   const { refreshSeasonData, refreshTeamData, refreshRoundData, year, team, round, error, resetButton } = props;
 
   return (
@@ -34,7 +37,6 @@ function SearchBox(props) {
         <option value={2000}>2000</option>
       </Form.Select>
 
-      {/* <Form.Label htmlFor="inputTeamSearch"></Form.Label> */}
       <Form.Control type="search" id="inputTeamSearch" className="input-field" value={team} onChange={refreshTeamData} />
       <p className='text-danger'>{error && error}</p>
 

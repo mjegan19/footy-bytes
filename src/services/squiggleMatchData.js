@@ -5,7 +5,6 @@ import config from '../config.json';
 export function fetchMatchData(year, round) {
   let queryString = "";
 
-
   if (round == null) {
     queryString = `?q=games&year=${year}`;
   } else {

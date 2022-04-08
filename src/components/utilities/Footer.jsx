@@ -1,11 +1,14 @@
+// Import Core React Modules
 import React, { useState, useEffect } from 'react'
 
 const Footer = () => {
 
+  // Define variables for dynamic site styling and set state for default load
   const [styleLight, setStyleLight] = useState('/style-light.css');
   const [styleDark, setStyleDark] = useState('/style-dark.css');
   const [darkTheme, setDarkTheme] = useState(false);
 
+  // useEffect Hook applied for updating site styling via the DOM
   useEffect(() => {
     let darkThemeSetting = localStorage.getItem("darkTheme");
     if (darkThemeSetting === "true") {
@@ -15,12 +18,13 @@ const Footer = () => {
     }
   }, []);
 
-
+  // Updates state of Dark Theme to false when 'Light' button clicked
   const handleLight = async (e) => {
     setDarkTheme(false);
     localStorage.setItem("darkTheme", "false");
   }
 
+  // Updates state of Dark Theme to true when 'Dark' button clicked
   const handleDark = async (e) => {
     setDarkTheme(true);
     localStorage.setItem("darkTheme", "true");
@@ -35,4 +39,4 @@ const Footer = () => {
   )
 }
 
-export default Footer
+export default Footer;

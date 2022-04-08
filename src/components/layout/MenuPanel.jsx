@@ -1,12 +1,14 @@
+// Import Core React Modules
 import React from 'react';
+
+// Import Page Components
 import Navbar from '../utilities/Navbar';
 import SearchBox from '../utilities/SearchBox';
 import Footer from '../utilities/Footer';
 
-
-
 const MenuPanel = (props) => {
 
+  // Allow data collected to be passed to child & sibling components
   const { refreshSeasonData, refreshTeamData, refreshRoundData, year, team, round, error, resetButton } = props;
 
   return (

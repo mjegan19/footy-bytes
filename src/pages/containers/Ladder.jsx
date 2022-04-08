@@ -1,6 +1,10 @@
+// Import Core React Modules
 import React, { useEffect, useState } from 'react';
+
+// Import useParams to recieve data passed through Address Bar
 import { useParams } from 'react-router-dom';
 
+// Import API Service Call Function
 import { fetchLadderData } from '../../services/squiggleLadderData';
 
 
@@ -10,7 +14,7 @@ const Ladder = () => {
 
   const [ladderData, setLadderData] = useState(null);
 
-  // Use Effect
+  // useEffect Hook applied for updating API results dynamically - ladderData
   useEffect(() => {
     async function getResults() {
       try {
@@ -25,17 +29,17 @@ const Ladder = () => {
     getResults();
   }, []);
 
-
+  // Dynamically Render Page Header
   function handlePageHeader() {
     return "Season " + year + " - " + "Round " + round + " Ladder";
   }
 
-
+  // Format Percentage Value to 2 decimal points
   function handlePercent(percent) {
     return percent.toFixed(2);
   }
 
-
+  // Conditional statement to Create 'Top 8' dividing line between teams
   function handleDivider(rank) {
     if (rank === 8) {
       const style = { borderBottom: '3px crimson solid' };
@@ -66,6 +70,7 @@ const Ladder = () => {
             </tr>
           </thead>
           <tbody>
+            {/* Map function to loop over array of results and render on page */}
             {ladderData && ladderData.map(standings => (
               <tr key={standings.rank} style={handleDivider(standings.rank)}>
                 <td>{standings.rank}</td>
@@ -87,4 +92,4 @@ const Ladder = () => {
   )
 }
 
-export default Ladder
+export default Ladder;
