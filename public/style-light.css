@@ -1,0 +1,226 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Shadows+Into+Light&display=swap');
+
+html,
+body {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 8px;
+}
+
+/* Menu Panel */
+#menu-panel {
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 40%;
+  padding: 0 5%;
+  position: fixed;
+  background-image: url('jake-nackos-C2PCa6DhlYE-unsplash.jpg');
+  background-color: darkgreen;
+  color: floralwhite;
+}
+
+#menu-panel p {
+  font-size: 10px;
+}
+
+/* Headings */
+h1 {
+  color: floralwhite;
+  font-size: 72px;
+  margin: 2rem 0;
+}
+
+h2 {
+  color: darkgreen;
+  font-size: 20px;
+  text-align: center;
+  margin-top: 2rem;
+}
+
+#bg-filter {
+  background: rgba(0, 0, 0, 0.3);
+  padding: 10px;
+}
+
+/* Navbar */
+#navbar {
+  display: flex;
+  justify-content: space-between;
+}
+
+#navbar li {
+  list-style: none;
+  font-size: 16px;
+}
+
+#navbar li a {
+  text-decoration: none;
+  color: crimson;
+}
+
+#navbar li a:hover {
+  color: brown;
+}
+
+
+
+/* Search Box Styling */
+#search-box #year,
+#inputTeamSearch,
+#round {
+  margin: 1rem 0;
+}
+
+.input-field {
+  font-size: 16px;
+}
+
+#teamSearchHelpText {
+  font-size: 10px;
+  color: floralwhite;
+}
+
+#search-box button {
+  font-size: 16px;
+  background-color: gainsboro;
+  width: 100%;
+  margin-top: 2rem;
+}
+
+#results-panel {
+  position: fixed;
+  top: 0;
+  left: 40%;
+  height: 100vh;
+  width: 60%;
+  overflow: scroll;
+  background-color: floralwhite;
+  padding: 2rem 5%;
+  text-align: left;
+}
+
+.date {
+  padding-left: 0.5rem;
+}
+
+.card {
+  width: 100%;
+  text-align: center;
+  margin: 5rem 0;
+  border: 2px solid crimson;
+  border-radius: 0;
+  background-color: floralwhite;
+}
+
+.card-head {
+  width: 100%;
+  background-color: crimson;
+  color: floralwhite;
+  text-align: center;
+  font-size: 16px;
+}
+
+.card-top {
+  display: flex;
+  margin: 2rem 0;
+}
+
+.team-details {
+  width: 40%;
+  font-size: 16px;
+}
+
+.team-details img {
+  margin: 1rem;
+}
+
+.team-details .team-name {
+  font-size: 10px;
+}
+
+.inner {
+  width: 20%;
+  font-size: 16px;
+  text-align: center;
+  margin: auto;
+}
+
+.game-details {
+  background-color: rgba(220, 20, 60, 0.4);
+  color: floralwhite;
+  font-size: 16px;
+}
+
+.react-icons {
+  font-size: 24px;
+  color: lightslategrey;
+}
+
+.ladder-link {
+  font-size: 2rem;
+  margin-top: 3rem;
+}
+
+.ladder-link a {
+  color: crimson;
+  text-decoration: none;
+}
+
+.ladder-link a:hover {
+  color: brown;
+}
+
+#ladder {
+  font-size: 12px;
+  text-align: center;
+  margin-top: 4rem;
+}
+
+table {
+  margin: 0 auto;
+}
+
+thead {
+  background-color: crimson;
+  color: white;
+}
+
+.team {
+  text-align: left;
+}
+
+th,
+td {
+  padding: 5px 12px;
+}
+
+
+
+footer {
+  position: absolute;
+  left: 0;
+  bottom: 0px;
+  width: 100%;
+  height: 100px;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.3);
+  color: white;
+  font-size: 16px;
+}
+
+footer span {
+  font-family: 'Shadows Into Light', cursive;
+  font-size: 32px;
+}
+
+footer button {
+  font-size: 16px;
+  margin: 1rem;
+  background-color: #212121;
+  color: floralwhite;
+}
+
+footer .light {
+  background-color: floralwhite;
+  color: #212121;
+}

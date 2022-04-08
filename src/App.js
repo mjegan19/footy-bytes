@@ -10,6 +10,8 @@ import Ladder from './pages/containers/Ladder';
 // Bootstrap Components
 // import Navbar from './components/Navbar';
 
+import './App.css';
+
 // import Table from 'react-bootstrap/Table'
 import Container from 'react-bootstrap/Container';
 import MenuPanel from './components/layout/MenuPanel';
@@ -105,7 +107,7 @@ function App() {
   }
 
   const handleFilterTeam = (team) => {
-    if (team == '') {
+    if (team === '') {
       setMatchData(savedMatchData);
       return
     }
