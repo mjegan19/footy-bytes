@@ -13,6 +13,9 @@ function SearchBox(props) {
 
     <section id="search-box">
       <Form.Select name="year" id="year" className="input-field" value={year} onChange={refreshSeasonData}>
+        <option value={2024}>2024</option>
+        <option value={2023}>2023</option>
+        <option value={2022}>2022</option>
         <option value={2021}>2021</option>
         <option value={2020}>2020</option>
         <option value={2019}>2019</option>
@@ -69,6 +72,7 @@ function SearchBox(props) {
         <option value={21}>Round 21</option>
         <option value={22}>Round 22</option>
         <option value={23}>Round 23</option>
+        <option value={24}>Round 24</option>
       </Form.Select>
 
       <button onClick={resetButton}>Reset Search</button>
