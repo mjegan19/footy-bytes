@@ -27,7 +27,7 @@ const Ladder = () => {
       }
     }
     getResults();
-  }, []);
+  }, [year, round]);
 
   // Dynamically Render Page Header
   function handlePageHeader() {

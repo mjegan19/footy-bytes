@@ -4,8 +4,8 @@ import React, { useState, useEffect } from 'react'
 const Footer = () => {
 
   // Define variables for dynamic site styling and set state for default load
-  const [styleLight, setStyleLight] = useState('/style-light.css');
-  const [styleDark, setStyleDark] = useState('/style-dark.css');
+  const styleLight = '/style-light.css';
+  const styleDark = '/style-dark.css';
   const [darkTheme, setDarkTheme] = useState(false);
 
   // useEffect Hook applied for updating site styling via the DOM
