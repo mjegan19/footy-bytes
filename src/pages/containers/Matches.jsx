@@ -17,13 +17,13 @@ const Matches = (props) => {
   const { matchData, year, round } = props;
 
   // Use Joi method to set validation for text input field
-  const schema = Joi.object({
-    teamSearch: Joi.string()
-      .alphanum()
-      .min(3)
-      .max(30)
-      .required()
-  });
+  // const schema = Joi.object({
+  //   teamSearch: Joi.string()
+  //     .alphanum()
+  //     .min(3)
+  //     .max(30)
+  //     .required()
+  // });
 
   // Dynamically Render Page Header
   function handlePageHeader() {
@@ -32,7 +32,7 @@ const Matches = (props) => {
     if (round == null) {
       dynamicHeading = "Season " + year + " Match Results";
     } else if (round != null) {
-      dynamicHeading = "Season " + year + " - " + "Round " + round + " Match Results";
+      dynamicHeading = "Season " + year + " - Round " + round + " Match Results";
     }
 
     return dynamicHeading;

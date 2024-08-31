@@ -31,7 +31,7 @@ const Ladder = () => {
 
   // Dynamically Render Page Header
   function handlePageHeader() {
-    return "Season " + year + " - " + "Round " + round + " Ladder";
+    return "Season " + year + " - Round " + round + " Ladder";
   }
 
   // Format Percentage Value to 2 decimal points
