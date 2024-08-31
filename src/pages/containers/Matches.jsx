@@ -9,7 +9,7 @@ import { logoWebAddress } from '../../services/squiggleLogoData';
 import { FaExternalLinkAlt } from 'react-icons/fa';
 
 // Import Joi Validation Component
-import Joi from 'joi';
+// import Joi from 'joi';
 
 const Matches = (props) => {
 
