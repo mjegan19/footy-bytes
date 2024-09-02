@@ -1,9 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Shadows+Into+Light&display=swap');
 
+@import url('https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&display=swap');
+
+
+.App {
+  text-align: center;
+}
+
 html,
 body {
-  font-family: 'Press Start 2P', cursive;
+  font-family: 'Silkscreen', display;
   font-size: 8px;
+}
+
+h1 {
+  font-family: 'Press Start 2P', cursive;
 }
 
 /* Menu Panel */
