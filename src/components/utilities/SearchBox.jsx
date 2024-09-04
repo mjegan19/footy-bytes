@@ -44,7 +44,7 @@ function SearchBox(props) {
       <p className='text-danger'>{error && error}</p>
 
       <Form.Text id="teamSearchHelpText">
-        To return all season match results for a<br />particular team, enter a valid team name above.
+        To return all season match results for a particular team, enter a valid team name above.
       </Form.Text>
 
       <Form.Select name="round" id="round" className="input-field" value={round} onChange={refreshRoundData}>
