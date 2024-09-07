@@ -87,7 +87,7 @@ const Matches = (props) => {
               <div className="team-details home">
                 <img src={logoWebAddress(match.hteamid)} alt="" />
                 <p className="team-name">{match.hteam}</p>
-                <p><strong>{match.hgoals}.{match.hbehinds}.{match.hscore}</strong></p>
+                <p>{match.hgoals}.{match.hbehinds}.{match.hscore}</p>
               </div>
               <div className="inner">
                 <p>{handleMatchResult(match.hscore, match.ascore)}</p>
@@ -95,8 +95,8 @@ const Matches = (props) => {
               </div>
               <div className="team-details away">
                 <img src={logoWebAddress(match.ateamid)} alt="" />
-                <p className="team-name"><strong>{match.ateam}</strong></p>
-                <p><strong>{match.agoals}.{match.abehinds}.{match.ascore}</strong></p>
+                <p className="team-name">{match.ateam}</p>
+                <p>{match.agoals}.{match.abehinds}.{match.ascore}</p>
               </div>
             </div>
             <div className="game-details">
