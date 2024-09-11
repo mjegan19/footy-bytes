@@ -42,9 +42,11 @@ h1 {
 }
 
 h2 {
-  color: floralwhite;
+  color: #212121;;
+  background-color: greenyellow;
   font-size: 20px;
   text-align: center;
+  padding: 1rem 0;
   margin-top: 2rem;
 }
 
@@ -184,7 +186,7 @@ h2 {
 }
 
 #ladder {
-  font-size: 12px;
+  font-size: 16px;
   text-align: center;
   margin-top: 4rem;
 }
@@ -195,7 +197,7 @@ table {
 
 thead {
   background-color: crimson;
-  color: white;
+  color: #212121;
 }
 
 .team {

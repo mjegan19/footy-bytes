@@ -42,9 +42,11 @@ h1 {
 }
 
 h2 {
-  color: darkgreen;
+  color: floralwhite;
+  background-color: darkgreen;
   font-size: 20px;
   text-align: center;
+  padding: 1rem 0;
   margin-top: 2rem;
 }
 
@@ -109,6 +111,10 @@ h2 {
   padding: 2rem 5%;
   text-align: left;
 }
+
+/* #results-panel h2 {
+  ba
+} */
 
 .date {
   padding-left: 0.5rem;
@@ -182,7 +188,7 @@ h2 {
 }
 
 #ladder {
-  font-size: 12px;
+  font-size: 16px;
   text-align: center;
   margin-top: 4rem;
 }
@@ -193,7 +199,7 @@ table {
 
 thead {
   background-color: crimson;
-  color: white;
+  color: floralwhite;
 }
 
 .team {
