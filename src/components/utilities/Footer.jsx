@@ -8,6 +8,8 @@ const Footer = () => {
   const styleDark = '/style-dark.css';
   const [darkTheme, setDarkTheme] = useState(false);
 
+  const currentYear = new Date().getFullYear();
+
   // useEffect Hook applied for updating site styling via the DOM
   useEffect(() => {
     let darkThemeSetting = localStorage.getItem("darkTheme");
@@ -34,7 +36,7 @@ const Footer = () => {
     <footer>
       <link rel="stylesheet" type="text/css" href={!darkTheme ? styleLight : styleDark} />
       Choose a theme: <button className="light" onClick={handleLight}>Light</button><button onClick={handleDark}>Dark</button><br />
-      Copyright &#169; 2022 <span>&#60;mixel&#62;</span> Web Studios
+      Copyright &#169; {currentYear} <span>&#60;mixel&#62;</span> Web Studios
     </footer>
   )
 }
