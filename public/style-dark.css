@@ -149,6 +149,11 @@ h2 {
   margin: 1rem;
 }
 
+.logo {
+  outline: 5px solid whitesmoke;
+  background: whitesmoke;
+}
+
 .team-details .team-name {
   font-size: 18px;
 }

@@ -85,7 +85,7 @@ const Matches = (props) => {
             <div className="card-head">{formatDate(match.date)[0]}</div>
             <div className="card-top">
               <div className="team-details home">
-                <img src={logoWebAddress(match.hteamid)} alt="" />
+                <img src={logoWebAddress(match.hteamid)} alt="" className="logo" />
                 <p className="team-name">{match.hteam}</p>
                 <p>{match.hgoals}.{match.hbehinds}.{match.hscore}</p>
               </div>
