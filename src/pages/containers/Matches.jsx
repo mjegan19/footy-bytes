@@ -94,7 +94,7 @@ const Matches = (props) => {
                 <p className="ladder-link"><Link to={`ladder/${match.year}/${match.round}`}><FaExternalLinkAlt /> VIEW LADDER</Link></p>
               </div>
               <div className="team-details away">
-                <img src={logoWebAddress(match.ateamid)} alt="" />
+                <img src={logoWebAddress(match.ateamid)} alt="" className="logo" />
                 <p className="team-name">{match.ateam}</p>
                 <p>{match.agoals}.{match.abehinds}.{match.ascore}</p>
               </div>
